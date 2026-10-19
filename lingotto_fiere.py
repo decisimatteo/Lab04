@@ -37,6 +37,19 @@ class StandPreseExtra(Stand):
     def __str__(self):
         return super().__str__() + f" - Prese aggiuntive: {self.numero_prese}"
 
+class Espositore:
+    def __init__(self, codice, nome, cognome):
+        self.codice = codice
+        self.nome = nome
+        self.cognome = cognome
+        self.stand = None
+
+    def __str__(self):
+        if self.stand is None:
+            return f"{self.codice} - {self.nome} {self.cognome} - Nessuno stand assegnato"
+
+        return f"{self.codice} - {self.nome} {self.cognome} - Stand {self.stand.codice}"
+
 class LingottoFiere:
     def __init__(self, nome):
         """Inizializza gli attributi e le strutture dati"""
